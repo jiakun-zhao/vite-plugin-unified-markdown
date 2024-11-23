@@ -1,0 +1,67 @@
+{
+  "name": "vite-plugin-unified-markdown",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Jiakun Zhao <hi@zhaojiakun.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/jiakun-zhao/vite-plugin-unified-markdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiakun-zhao/vite-plugin-unified-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jiakun-zhao/vite-plugin-unified-markdown/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./addons": {
+      "types": "./dist/addons.d.ts",
+      "import": "./dist/addons.mjs",
+      "require": "./dist/addons.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp && pnpm publish && npx cnpm sync vite-plugin-unified-markdown",
+    "stub": "unbuild --stub",
+    "test": "vitest -u"
+  },
+  "peerDependencies": {
+    "vite": "^5.4.11"
+  },
+  "dependencies": {
+    "rehype-stringify": "^10.0.1",
+    "remark-mdc": "^3.4.0",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.1",
+    "unified": "^11.0.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.9.2",
+    "@antfu/utils": "^0.7.10",
+    "@types/hast": "^3.0.4",
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^22.9.3",
+    "bumpp": "^9.8.1",
+    "eslint": "^9.15.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "unbuild": "^2.0.0",
+    "vfile": "^6.0.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
+  }
+}
